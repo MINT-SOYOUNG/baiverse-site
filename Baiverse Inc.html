@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAIVERSE - 베이버스</title>
+    
+    <!-- Noto Sans KR 폰트 적용 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1e3a8a', // 시안과 유사한 네이비 블루
+                            light: '#f8fafc',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons (CDN) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* 스크롤 부드럽게 */
+        html { scroll-behavior: smooth; }
+        
+        /* 텍스트 줄바꿈 방지 유틸리티 */
+        .keep-all { word-break: keep-all; }
+    </style>
+</head>
+<body class="font-sans text-gray-800 antialiased bg-white">
+
+    <!-- Header (내비게이션 바) -->
+    <header class="fixed top-0 w-full bg-white/90 backdrop-blur-sm border-b border-gray-100 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer">
+                    <img src="https://i.imgur.com/SdRkZMs.png" alt="BAIVERSE 로고" class="h-8 w-auto">
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-10">
+                    <a href="#" class="text-brand-blue font-bold border-b-2 border-brand-blue pb-1">홈</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-blue font-medium transition-colors">회사소개</a>
+                    <a href="#board" class="text-gray-600 hover:text-brand-blue font-medium transition-colors">게시판</a>
+                    <a href="#services" class="text-gray-600 hover:text-brand-blue font-medium transition-colors">주요사업</a>
+                    <a href="#contact" class="text-gray-600 hover:text-brand-blue font-medium transition-colors">오시는길</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-blue focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col text-center">
+                <a href="#" class="block px-3 py-3 text-brand-blue font-bold bg-blue-50 rounded-md">홈</a>
+                <a href="#about" class="block px-3 py-3 text-gray-600 font-medium hover:bg-gray-50 rounded-md">회사소개</a>
+                <a href="#board" class="block px-3 py-3 text-gray-600 font-medium hover:bg-gray-50 rounded-md">게시판</a>
+                <a href="#services" class="block px-3 py-3 text-gray-600 font-medium hover:bg-gray-50 rounded-md">주요사업</a>
+                <a href="#contact" class="block px-3 py-3 text-gray-600 font-medium hover:bg-gray-50 rounded-md">오시는길</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 lg:pt-40 lg:pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row items-center gap-12">
+            <!-- Text Content -->
+            <div class="w-full lg:w-1/2 space-y-6">
+                <h1 class="text-4xl lg:text-5xl font-bold leading-tight text-gray-900 keep-all">
+                    AI와 디지털 기술로<br>
+                    미디어와 공공 서비스를<br>
+                    연결합니다.
+                </h1>
+                <p class="text-lg text-gray-500 keep-all leading-relaxed pt-2">
+                    국제신문과 협력하여<br>
+                    AI기반 디지털 서비스를 연구·개발합니다.
+                </p>
+                <div class="pt-4">
+                <a href="#about" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-brand-blue hover:bg-blue-800 transition-colors shadow-sm">
+                    회사 소개 <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+        <!-- Image Content -->
+        <div class="w-full lg:w-1/2">
+            <!-- 사용자가 요청한 국제신문 메인 이미지 적용 (외부 링크) -->
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-blue-50">
+                <img src="https://i.imgur.com/VYqX38F.jpeg" alt="국제신문 빌딩과 디지털 네트워크 연결" class="w-full h-auto object-cover hover:scale-105 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80'">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 주요 서비스 (Services) -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-12">주요 서비스</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-y-12 md:gap-y-0 md:divide-x md:divide-gray-200">
+                <!-- Service 1 -->
+                <div class="flex flex-col items-center text-center px-6">
+                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6 text-brand-blue">
+                        <i data-lucide="lightbulb" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">AI 솔루션</h3>
+                    <p class="text-gray-500 keep-all">
+                        AI 기술을 활용해 다양한 디지털<br>서비스를 연구·개발합니다.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="flex flex-col items-center text-center px-6">
+                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6 text-brand-blue">
+                        <i data-lucide="monitor-play" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">미디어 콘텐츠</h3>
+                    <p class="text-gray-500 keep-all">
+                        미디어 콘텐츠 제작 AI 기반<br>콘텐츠 서비스를 발굴합니다.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="flex flex-col items-center text-center px-6">
+                    <div class="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-6 text-brand-blue">
+                        <i data-lucide="building-2" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">공공 디지털 서비스</h3>
+                    <p class="text-gray-500 keep-all">
+                        공공기관과 함께 디지털 전환을<br>위한 맞춤형 서비스를 제공합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 협력 프로젝트 (Projects) -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-10">
+                <h2 class="text-2xl font-bold text-gray-900">협력 프로젝트</h2>
+                <a href="#" class="text-sm font-medium text-gray-500 hover:text-brand-blue flex items-center">
+                    더보기 <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 hover:shadow-md transition-shadow">
+                    <div class="flex-shrink-0 w-32 flex flex-col items-center justify-center">
+                        <!-- 사용자 요청 이미지 1 반영 -->
+                        <img src="https://i.imgur.com/HINWb0W.jpeg" alt="국제신문 AI 협력 사업 이미지" class="w-full h-auto object-cover rounded-xl shadow-sm border border-gray-100">
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">국제신문 AI 협력 사업</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed keep-all">
+                            AI 기반 뉴스 콘텐츠 분석 및 디지털 플랫폼 고도화를 위한 공동 프로젝트를 진행하고 있습니다.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 hover:shadow-md transition-shadow relative overflow-hidden">
+                    <div class="flex-shrink-0 w-32 flex flex-col items-center justify-center relative z-10">
+                        <!-- 사용자 요청 이미지 2 반영 -->
+                        <img src="https://i.imgur.com/DQRYgpQ.jpeg" alt="빅아이 도란도란 이미지" class="w-full h-auto object-cover rounded-xl shadow-sm border border-gray-100">
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">부산시 어린이신문<br>'빅아이 도란도란'</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed keep-all">
+                            아이들이 즐겁게 배우는 신규 콘텐츠를 AI 기술과 함께 만들어갑니다.
+                        </p>
+                    </div>
+                    <!-- Background decoration for playfulness -->
+                    <div class="absolute -bottom-4 -right-4 text-6xl opacity-10">✨</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 게시판 (Board) -->
+    <section id="board" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-8">
+                <h2 class="text-2xl font-bold text-gray-900">게시판</h2>
+                <a href="#" class="text-sm font-medium text-gray-500 hover:text-brand-blue flex items-center">
+                    전체보기 <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                </a>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-t-2 border-gray-900">
+                    <thead>
+                        <tr class="bg-gray-50 border-b border-gray-200 text-sm font-bold text-gray-700">
+                            <th class="py-4 px-6 text-center w-24">번호</th>
+                            <th class="py-4 px-6 text-center">제목</th>
+                            <th class="py-4 px-6 text-center w-32">등록일</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm text-gray-600">
+                        <tr class="border-b border-gray-200 hover:bg-gray-50 cursor-pointer transition-colors">
+                            <td class="py-4 px-6 text-center">1</td>
+                            <td class="py-4 px-6 font-medium text-gray-900 text-center">홈페이지 오픈 안내</td>
+                            <td class="py-4 px-6 text-center text-gray-500">2026-05-15</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-50 cursor-pointer transition-colors">
+                            <td class="py-4 px-6 text-center">2</td>
+                            <td class="py-4 px-6 font-medium text-gray-900 text-center">국제신문 협력 프로젝트</td>
+                            <td class="py-4 px-6 text-center text-gray-500">2026-05-01</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 베이버스는 (About & Timeline) -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between gap-16">
+                <!-- Info -->
+                <div class="lg:w-1/3">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">베이버스는</h2>
+                    <p class="text-gray-600 leading-relaxed keep-all mb-8">
+                        부산을 기반으로 AI 기술과 디지털 콘텐츠를 연구·개발하며,<br>
+                        미디어와 공공 분야의 디지털 서비스를 만들어갑니다.
+                    </p>
+                    <a href="#" class="inline-flex items-center justify-center px-6 py-2.5 border border-gray-300 text-sm font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                        자세히 보기 <i data-lucide="chevron-right" class="ml-1 w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Timeline -->
+                <div class="lg:w-2/3 flex items-center relative py-10 overflow-x-auto no-scrollbar">
+                    <!-- Line -->
+                    <div class="absolute top-1/2 left-0 w-full h-[1px] bg-gray-300 -translate-y-1/2 -z-0 min-w-[500px]"></div>
+                    
+                    <!-- Nodes -->
+                    <div class="relative z-10 flex justify-between w-full min-w-[500px]">
+                        <!-- Item 1 -->
+                        <div class="flex flex-col items-center w-1/4 px-2">
+                            <span class="text-brand-blue font-bold text-lg mb-4">2024</span>
+                            <div class="w-3 h-3 bg-brand-blue rounded-full ring-4 ring-white"></div>
+                            <span class="text-xs text-gray-500 mt-4 text-center keep-all">베이버스 주식회사 설립</span>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="flex flex-col items-center w-1/4 px-2">
+                            <span class="text-brand-blue font-bold text-lg mb-4">2024</span>
+                            <div class="w-3 h-3 bg-brand-blue rounded-full ring-4 ring-white"></div>
+                            <span class="text-xs text-gray-500 mt-4 text-center keep-all">국제신문 업무협약 체결</span>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="flex flex-col items-center w-1/4 px-2">
+                            <span class="text-brand-blue font-bold text-lg mb-4">2025</span>
+                            <div class="w-3 h-3 bg-brand-blue rounded-full ring-4 ring-white"></div>
+                            <span class="text-xs text-gray-500 mt-4 text-center keep-all">벤처기업 인증</span>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="flex flex-col items-center w-1/4 px-2">
+                            <span class="text-brand-blue font-bold text-lg mb-4">2025</span>
+                            <div class="w-3 h-3 bg-brand-blue rounded-full ring-4 ring-white"></div>
+                            <span class="text-xs text-gray-500 mt-4 text-center keep-all">빅아이 도란도란 제작 협력</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row bg-gray-50 rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                <!-- Contact Info -->
+                <div class="lg:w-2/5 p-10 lg:p-14 flex flex-col justify-center">
+                    <h2 class="text-3xl font-black text-gray-900 mb-8 tracking-wider uppercase">Contact</h2>
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <i data-lucide="phone" class="w-5 h-5 text-gray-400 mr-4 mt-0.5"></i>
+                            <span class="text-gray-700 font-medium">051-500-5300</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="mail" class="w-5 h-5 text-gray-400 mr-4 mt-0.5"></i>
+                            <span class="text-gray-700 font-medium">contact@baiverse.com</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-gray-400 mr-4 mt-1"></i>
+                            <span class="text-gray-700 font-medium keep-all leading-relaxed">
+                                부산광역시 연제구 중앙대로 1217<br>국제신문빌딩 5층
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Map Area -->
+                <div class="lg:w-3/5 h-80 lg:h-auto relative bg-gray-200">
+                    <!-- Google Maps Iframe을 활용하여 실제 위치와 유사하게 구현 -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.274151770001!2d129.076899!3d35.1852065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356891040445dcb9%3A0x6b4f76269b66a504!2z6rWt7KCc7Iug66y4!5e0!3m2!1sko!2skr!4v1700000000000!5m2!1sko!2skr" 
+                        class="absolute inset-0 w-full h-full border-0" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-blue pt-12 pb-8 border-t border-blue-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <!-- Footer Logo -->
+                <div class="flex items-center gap-2">
+                    <span class="font-black text-xl text-white tracking-tight">BAIVERSE</span>
+                </div>
+                
+                <!-- Footer Links -->
+                <div class="flex space-x-6 text-sm">
+                    <button onclick="openModal('modal-privacy')" class="text-blue-200 hover:text-white font-bold transition-colors focus:outline-none">개인정보처리방침</button>
+                    <button onclick="openModal('modal-terms')" class="text-blue-200 hover:text-white transition-colors focus:outline-none">이용약관</button>
+                </div>
+
+                <!-- Copyright -->
+                <div class="text-blue-300 text-xs">
+                    © 2026 BAIVERSE. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 모달창: 개인정보처리방침 -->
+    <div id="modal-privacy" class="fixed inset-0 z-[100] hidden">
+        <!-- 배경 어둡게 -->
+        <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-privacy')"></div>
+        <!-- 모달 컨텐츠 -->
+        <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-2xl bg-white rounded-2xl shadow-2xl flex flex-col max-h-[85vh]">
+            <div class="px-6 py-5 border-b border-gray-100 flex justify-between items-center bg-gray-50 rounded-t-2xl">
+                <h3 class="font-bold text-lg text-gray-900">개인정보처리방침</h3>
+                <button onclick="closeModal('modal-privacy')" class="text-gray-400 hover:text-gray-700 focus:outline-none transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto text-sm text-gray-600 leading-relaxed space-y-4">
+                <p><strong>제1조 (목적)</strong><br>주식회사 베이버스(이하 '회사')는 이용자의 개인정보를 중요시하며, "정보통신망 이용촉진 및 정보보호"에 관한 법률을 준수하고 있습니다.</p>
+                <p><strong>제2조 (수집하는 개인정보 항목)</strong><br>회사는 상담, 서비스 신청 등을 위해 아래와 같은 개인정보를 수집하고 있습니다.<br>- 수집항목 : 이름, 이메일, 전화번호, 회사명 등</p>
+                <p><strong>제3조 (개인정보의 수집 및 이용목적)</strong><br>회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.<br>- 서비스 제공에 관한 계약 이행 및 불만처리 등 민원처리<br>- 신규 서비스 개발 및 마케팅·광고에의 활용</p>
+                <p><strong>제4조 (개인정보의 보유 및 이용기간)</strong><br>원칙적으로, 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다. 단, 관계법령의 규정에 의하여 보존할 필요가 있는 경우 일정 기간 보관합니다.</p>
+            </div>
+            <div class="px-6 py-4 border-t border-gray-100 bg-gray-50 flex justify-end rounded-b-2xl">
+                <button onclick="closeModal('modal-privacy')" class="px-4 py-2 bg-brand-blue text-white text-sm font-medium rounded-lg hover:bg-blue-800 transition-colors">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 모달창: 이용약관 -->
+    <div id="modal-terms" class="fixed inset-0 z-[100] hidden">
+        <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="closeModal('modal-terms')"></div>
+        <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-2xl bg-white rounded-2xl shadow-2xl flex flex-col max-h-[85vh]">
+            <div class="px-6 py-5 border-b border-gray-100 flex justify-between items-center bg-gray-50 rounded-t-2xl">
+                <h3 class="font-bold text-lg text-gray-900">이용약관</h3>
+                <button onclick="closeModal('modal-terms')" class="text-gray-400 hover:text-gray-700 focus:outline-none transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <div class="p-6 overflow-y-auto text-sm text-gray-600 leading-relaxed space-y-4">
+                <p><strong>제1조 (목적)</strong><br>본 약관은 주식회사 베이버스(이하 '회사')가 제공하는 디지털 서비스 및 웹사이트의 이용과 관련하여 회사와 이용자의 권리, 의무 및 책임사항을 규정함을 목적으로 합니다.</p>
+                <p><strong>제2조 (약관의 효력 및 변경)</strong><br>1. 본 약관은 서비스를 통하여 이를 공지하거나 전자우편 등의 방법으로 이용자에게 통지함으로써 효력이 발생합니다.<br>2. 회사는 사정 변경의 경우와 영업상 중요한 사유가 있을 때 약관을 변경할 수 있으며, 변경된 약관은 전항과 같은 방법으로 효력이 발생합니다.</p>
+                <p><strong>제3조 (서비스의 제공 및 변경)</strong><br>회사는 업무상 또는 기술상의 장애로 인하여 서비스를 일시적으로 중단할 수 있으며, 이 경우 웹사이트를 통해 사전 공지합니다.</p>
+                <p><strong>제4조 (이용자의 의무)</strong><br>이용자는 본 약관에서 규정하는 사항과 기타 회사가 정한 제반 규정, 공지사항 등 회사가 공지하는 사항 및 관계법령을 준수하여야 하며, 기타 회사의 업무에 방해가 되는 행위, 회사의 명예를 손상시키는 행위를 해서는 안 됩니다.</p>
+            </div>
+            <div class="px-6 py-4 border-t border-gray-100 bg-gray-50 flex justify-end rounded-b-2xl">
+                <button onclick="closeModal('modal-terms')" class="px-4 py-2 bg-brand-blue text-white text-sm font-medium rounded-lg hover:bg-blue-800 transition-colors">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 아이콘 및 스크립트 초기화 -->
+    <script>
+        // Lucide 아이콘 렌더링
+        lucide.createIcons();
+
+        // 모바일 메뉴 토글 스크립트
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // 모달창 열기/닫기 스크립트
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            // 배경 스크롤 방지
+            document.body.style.overflow = 'hidden';
+            // 모달 열릴 때 아이콘 렌더링 재실행 (모달 내부 X 아이콘)
+            lucide.createIcons();
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+            // 배경 스크롤 복구
+            document.body.style.overflow = '';
+        }
+
+        // ESC 키 누르면 모달창 닫기
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modals = document.querySelectorAll('[id^="modal-"]:not(.hidden)');
+                modals.forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
